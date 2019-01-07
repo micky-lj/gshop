@@ -54,10 +54,11 @@
     mounted(){
     this.$store.dispatch('getCategroys')
     this.$store.dispatch('getShops')
+    this.$store.dispatch('getUserInfo')
     },
     //计算属性
     computed: {
-      ...mapState(['address', 'categroys']),
+      ...mapState(['address', 'categroys', 'userInfo']),
       //根据categroies一维数组生成一个二维数组
       categroysArr(){
         const {categroys} = this

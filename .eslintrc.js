@@ -38,6 +38,8 @@ module.exports = {
     'space-before-function-paren':0,
     'space-before-blocks':0,
     'no-undef':0,
-    'no-template-curly-in-string':0
+    'no-template-curly-in-string':0,
+    'no-unused-vars':0,
+    'vue%2Fno-dupe-keys':0
   }
 }

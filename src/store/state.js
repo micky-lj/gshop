@@ -6,5 +6,6 @@ export default{
   longitude: 116.36876,
   address: {},
   categroys:[],
-  shops:[]
+  shops:[],
+  userInfo: {}
 }  
