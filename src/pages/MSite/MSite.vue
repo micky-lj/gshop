@@ -2,12 +2,15 @@
   <section class="msite">
       <!--首页头部-->
       <HeaderTop :title="address.name">  <!--":"强制绑定-->
-        <span class="header_search" slot="left">
+        <router-link class="header_search" slot="left" to="/search">
           <i class="iconfont icon-search"></i>
-        </span>
-        <span class="header_login" slot="right">
-          <span class="header_login_text">登录|注册</span>
-        </span>
+        </router-link>
+        <router-link class="header_login" slot="right" to="userInfo._id ? '/userinfo' : '/login'">
+          <span class="header_login_text" v-if= "!userInfo._id">登录|注册</span>
+          <span class="header_login_text" v-else>
+            <i class="iconfont icon-person"></i>
+          </span>
+        </router-link>
       </HeaderTop>
       <!--首页导航-->
       <nav class="msite_nav">

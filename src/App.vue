@@ -15,10 +15,10 @@ export default {
         // console.log(result)
         //this.$store.dispatch('getAddress')
         this.getAddress() //用方法实现，另一种写法
-        this.$store.dispatch('getUserInfo')
+        this.getUserInfo()
     },
     methods: {
-        ...mapActions(['getAddress'])
+        ...mapActions(['getAddress', 'getUserInfo'])
     },
     components:{
         FooterGuide
