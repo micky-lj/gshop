@@ -9,7 +9,9 @@ import {
   RESET_USER_INFO,
   RECEIVE_INFO,
   RECEIVE_RATINGS,
-  RECEIVE_GOODS
+  RECEIVE_GOODS,
+  INCREMENT_FOOD_COUNT,
+  DECREMENT_FOOD_COUNT
 } from './mutition-types'
 import {
   reqAddress,
@@ -86,17 +88,26 @@ export default{
   async getShopRatings({commit}) {
     const result = await reqShopRatings()
     if (result.code === 0) {
-    const ratings = result.data
-    commit(RECEIVE_RATINGS, {ratings})
+      const ratings = result.data
+      commit(RECEIVE_RATINGS, {ratings})
     }
   },
   // 异步获取商家商品列表
-  async getShopGoods({commit}) {
+  async getShopGoods({commit}, callback) {
     const result = await reqShopGoods()
     if (result.code === 0) {
-    const goods = result.data
-    commit(RECEIVE_GOODS, {goods})
-    // 如果组件中传递了接收消息的回调函数, 数据更新后, 调用回调通知调用的组件
+      const goods = result.data
+      commit(RECEIVE_GOODS, {goods})
+      // 如果组件中传递了接收消息的回调函数, 数据更新后, 调用回调通知调用的组件
+      callback && callback()
+    }
+  },
+  // 更新指定food 的count
+  updateFoodCount ({commit}, {food, isAdd}) {
+    if (isAdd) { // 增加
+      commit(INCREMENT_FOOD_COUNT, {food})
+    } else { // 减少
+      commit(DECREMENT_FOOD_COUNT, {food})
     }
   }
 }
