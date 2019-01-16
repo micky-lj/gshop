@@ -40,6 +40,7 @@ module.exports = {
     'no-undef':0,
     'no-template-curly-in-string':0,
     'no-unused-vars':0,
-    'vue%2Fno-dupe-keys':0
+    'vue%2Fno-dupe-keys':0,
+    'no-return-assign':0
   }
 }

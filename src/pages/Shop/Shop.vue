@@ -23,7 +23,7 @@ export default {
     this.$store.dispatch('getShopInfo')
   },
   components: {
-  ShopHeader
+    ShopHeader
   }
 }
 </script>

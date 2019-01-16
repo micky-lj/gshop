@@ -11,7 +11,8 @@ import {
   RECEIVE_RATINGS,
   RECEIVE_GOODS,
   INCREMENT_FOOD_COUNT,
-  DECREMENT_FOOD_COUNT
+  DECREMENT_FOOD_COUNT,
+  CLEAR_CART
 } from './mutition-types'
 import Vue from 'vue'
 
@@ -57,5 +58,11 @@ export default{
         state.shopCart.splice(state.shopCart.indexOf(food), 1)
       }
     }
+  },
+  [CLEAR_CART](state) {
+    // 将所有food 的count 置为0
+    state.shopCart.forEach(food => food.count = 0)
+    // 将购物车重置为空数组
+    state.shopCart = []
   }
 }
